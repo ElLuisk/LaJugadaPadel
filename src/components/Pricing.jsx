@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FiSun, FiMoon, FiUsers, FiShoppingBag, FiAward } from 'react-icons/fi';
 import { IoIosTennisball } from 'react-icons/io';
-import { GiTennisRacket } from 'react-icons/gi';
+import TennisPadel from '../assets/pelota_padel.png'
 
 // La información de las tarifas se mantiene
 const allPricingData = [
@@ -11,7 +11,14 @@ const allPricingData = [
   { icon: <FiMoon size={28} />, title: 'Tarifa PM', price: '450', description: 'Por hora, desde 5pm', isPromo: false, },
   { icon: <FiUsers size={28} />, title: 'Fin de Semana', price: '250', description: 'Sábados y Domingos', isPromo: false, },
   { icon: <IoIosTennisball size={28} />, title: 'Bote de Pelotas', price: '155', description: 'Penn (3 pelotas)', isPromo: false, },
-  { icon: <GiTennisRacket size={28} />, title: 'Renta de Pala', price: '80', description: 'Tiempo ilimitado', isPromo: false, },
+  { 
+  icon: <img src={TennisPadel} alt="Pelota de padel" className="w-7 h-7" style={{ filter: 'brightness(0) saturate(100%) invert(66%) sepia(96%) saturate(404%) hue-rotate(30deg) brightness(105%) contrast(77%)'}} />, 
+  title: 'Renta de Pala', 
+  price: '80', 
+  description: 'Tiempo ilimitado', 
+  isPromo: false 
+  
+},
   { icon: <FiAward size={28} />, title: 'Domingo Familiar', price: '350', description: 'Palas y pelotas incluidas', isPromo: true, },
 ];
 
