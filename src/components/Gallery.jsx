@@ -1,8 +1,8 @@
-// src/components/Gallery.jsx
+// src/components/GalleryAccordion.jsx
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Importamos las imágenes locales (sin cambios aquí)
+// Importamos las imágenes (sin cambios)
 import fotoVistaCanchas from '../assets/Padel_Foto_Vista_Canchas.jpg';
 import fotoCanchas from '../assets/Padel_Foto_Canchas.jpg';
 import fotoRaquetas from '../assets/Padel_Foto_Raquetas.jpg';
@@ -12,16 +12,16 @@ const galleryImages = [
   { src: fotoVistaCanchas, alt: 'Vista panorámica de las canchas' },
   { src: fotoCanchas, alt: 'Jugadores en plena acción' },
   { src: fotoRaquetas, alt: 'Equipamiento profesional' },
-  { src: fotoSnacks, alt: 'Nuestra zona de relax' },
+  { src: fotoSnacks, alt: 'Nuestra zona de relax y snacks' },
 ];
 
 const Gallery = () => {
-  // 1. NUEVO ESTADO: Más simple, solo necesitamos el índice de la imagen activa.
+  // El estado sigue siendo el índice de la imagen activa.
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section id="galeria" className="relative bg-brand-verde-oscuro py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* FONDO: Se mantiene el mismo fondo de líneas */}
+      {/* Fondo de líneas (sin cambios) */}
       <div className="absolute inset-0 z-0">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -33,7 +33,8 @@ const Gallery = () => {
         </svg>
       </div>
 
-      <div className="relative max-w-5xl mx-auto z-10 flex flex-col items-center">
+      <div className="relative max-w-7xl mx-auto z-10 flex flex-col items-center">
+        {/* Títulos (sin cambios) */}
         <div className="text-center mb-12">
           <h2 className="font-display text-base font-bold text-brand-verde-lima tracking-wider uppercase">
             Nuestras Instalaciones
@@ -43,63 +44,48 @@ const Gallery = () => {
           </p>
         </div>
 
-        {/* 2. NUEVO DISEÑO: Contenedor para la imagen principal y las miniaturas */}
-        <div className="w-full max-w-4xl">
-          {/* Contenedor de la Imagen Principal */}
-          <div className="relative mb-4 w-full aspect-video bg-black/20 rounded-xl shadow-2xl overflow-hidden border border-white/10">
-            <AnimatePresence mode="wait">
-              <motion.img
-                // La key es crucial para que AnimatePresence detecte el cambio
-                key={activeIndex}
-                src={galleryImages[activeIndex].src}
-                alt={galleryImages[activeIndex].alt}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="absolute top-0 left-0 w-full h-full object-cover"
-              />
-            </AnimatePresence>
-            {/* Título de la imagen superpuesto */}
-             <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/60 to-transparent">
-                <motion.p 
-                    key={activeIndex + '-title'}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="font-semibold text-white text-lg"
-                >
-                    {galleryImages[activeIndex].alt}
-                </motion.p>
-             </div>
-          </div>
-
-          {/* 3. NUEVO DISEÑO: Fila de miniaturas interactivas */}
-          <div className="flex justify-center gap-2 sm:gap-4 mt-6">
-            {galleryImages.map((image, index) => (
-              <motion.button
+        {/* 1. NUEVO DISEÑO: Contenedor del acordeón horizontal */}
+        <div className="w-full h-[500px] flex gap-2 md:gap-4 p-2 bg-black/20 rounded-xl shadow-2xl border border-white/10">
+          {galleryImages.map((image, index) => {
+            const isActive = index === activeIndex;
+            return (
+              <motion.div
                 key={image.src}
                 onClick={() => setActiveIndex(index)}
-                className={`relative w-16 h-16 sm:w-24 sm:h-24 rounded-lg overflow-hidden transition-all duration-300
-                            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-verde-oscuro focus:ring-brand-verde-lima
-                            ${
-                              activeIndex === index
-                                ? 'ring-2 ring-brand-verde-lima'
-                                : 'ring-2 ring-transparent'
-                            }`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                // 2. LA MAGIA: Animamos la propiedad 'flex'.
+                // La imagen activa ocupa 5 partes del espacio, las inactivas solo 1.
+                // Framer Motion se encarga de la transición suave.
+                initial={false}
+                animate={{
+                  flex: isActive ? 5 : 1,
+                }}
+                transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+                className="relative h-full rounded-lg overflow-hidden cursor-pointer"
               >
                 <img
                   src={image.src}
                   alt={image.alt}
-                  className={`w-full h-full object-cover transition-opacity duration-300
-                              ${activeIndex === index ? 'opacity-100' : 'opacity-60 hover:opacity-100'}`}
+                  className="absolute top-0 left-0 w-full h-full object-cover"
                 />
-              </motion.button>
-            ))}
-          </div>
+                {/* 3. TÍTULO SUPERPUESTO: Solo visible en la imagen activa */}
+                <AnimatePresence>
+                  {isActive && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 20 }}
+                      transition={{ duration: 0.3, delay: 0.2 }}
+                      className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent"
+                    >
+                      <h3 className="font-semibold text-white text-lg md:text-xl">
+                        {image.alt}
+                      </h3>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
