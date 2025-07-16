@@ -1,0 +1,34 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@700;800&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@700;800&family=Inter:wght@400;500;600&family=Lora:ital,wght@1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Opcional: un scroll suave para la navegación por anclas */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Añade esto al final de src/index.css */
+
+.text-gradient-animated {
+  /* Creamos un degradado que va de lima a blanco y de vuelta a lima */
+  background-image: linear-gradient(
+    -225deg,
+    #D1F13C 70%,
+    #FFFFFF 39%,
+    #D1F13C 67%,
+    #FFFFFF 100%
+  );
+  background-size: 200% auto; /* El fondo es el doble de grande que el texto */
+  
+  /* Hacemos que el fondo se muestre a través del texto */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* Aplicamos la animación que definimos en Tailwind */
+  animation: text-gradient-anim 4s linear infinite;
+}
