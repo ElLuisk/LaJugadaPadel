@@ -39,7 +39,7 @@ const Footer = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="font-display text-4xl font-extrabold uppercase">
-              ¿Listo para tu próxima <span className="text-brand-verde-lima">Jugada</span>?
+              ¿Listo para la próxima <span className="text-brand-verde-lima">Jugada</span>?
             </h2>
             <p className="mt-4 text-lg text-gray-300">
               Visítanos y descubre por qué somos el punto de encuentro preferido por los amantes del pádel en Los Mochis.
