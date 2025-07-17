@@ -45,7 +45,7 @@ const Hero = () => {
             alt="Pelota de pádel"
             className="w-48 h-48 object-contain"
             style={{
-              filter: 'brightness(0) saturate(100%) invert(66%) sepia(96%) saturate(404%) hue-rotate(30deg) brightness(105%) contrast(77%)'
+              filter: 'brightness(0) saturate(100%) invert(66%) sepia(96%) saturate(804%) hue-rotate(30deg) brightness(150%) contrast(70%)'
             }}
           />
           </div>

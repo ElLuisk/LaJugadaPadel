@@ -12,7 +12,7 @@ const allPricingData = [
   { icon: <FiUsers size={28} />, title: 'Fin de Semana', price: '250', description: 'Sábados y Domingos', isPromo: false, },
   { icon: <IoIosTennisball size={28} />, title: 'Bote de Pelotas', price: '155', description: 'Penn (3 pelotas)', isPromo: false, },
   { 
-  icon: <img src={TennisPadel} alt="Pelota de padel" className="w-7 h-7" style={{ filter: 'brightness(0) saturate(100%) invert(66%) sepia(96%) saturate(404%) hue-rotate(30deg) brightness(105%) contrast(77%)'}} />, 
+  icon: <img src={TennisPadel} alt="Pelota de padel" className="w-7 h-7" style={{ filter: 'brightness(0) saturate(100%) invert(66%) sepia(96%) saturate(804%) hue-rotate(30deg) brightness(150%) contrast(70%)'}} />, 
   title: 'Renta de Pala', 
   price: '80', 
   description: 'Tiempo ilimitado', 
