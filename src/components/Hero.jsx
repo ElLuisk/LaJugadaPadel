@@ -25,11 +25,12 @@ const Hero = () => {
           <motion.p className="font-display text-lg font-bold text-brand-verde-lima uppercase tracking-widest" variants={itemVariants}>
             Bienvenido al Club
           </motion.p>
-          <motion.h1 className="mt-2 font-display text-5xl md:text-7xl font-extrabold text-white uppercase tracking-tighter" variants={itemVariants} style={{ textShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
-            <span className="block">Donde tu mejor</span>
-            <span className="block text-brand-verde-lima">Jugada comienza</span>
+          <motion.h1 className="mt-2 font-display text-5xl md:text-8xl font-extrabold text-white uppercase tracking-tighter" variants={itemVariants} style={{ textShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
+            <span className="block">Donde</span>
+            <span className="block text-brand-verde-lima">La Jugada</span>
+            <span className="block">Comienza</span>
           </motion.h1>
-          <motion.p className="mt-6 text-lg md:text-xl text-gray-200/90 max-w-lg mx-auto lg:mx-0" variants={itemVariants}>
+          <motion.p className="mt-6 text-lg md:text-x2 text-gray-200/90 max-w-lg mx-auto lg:mx-0" variants={itemVariants}>
             Pistas de última generación, escuela para todos los niveles y un ambiente inmejorable. Bienvenido a <span className="font-bold text-white">La Jugada Padel Club</span>.
           </motion.p>
           <motion.div className="mt-10" variants={itemVariants}>
