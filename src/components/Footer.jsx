@@ -76,7 +76,7 @@ const Footer = () => {
           <div className="flex items-center">
             <img src={logo} alt="La Jugada Padel Club" className="h-12 rounded-full mr-4" />
             <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} La Jugada Padel Club. Todos los derechos reservados.
+              © {new Date().getFullYear()} La Jugada Padel & Club. Todos los derechos reservados.
             </p>
           </div>
           <div className="flex space-x-6 mt-6 sm:mt-0">

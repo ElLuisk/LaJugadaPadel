@@ -12,7 +12,7 @@ import caffeempaticoBg from '../assets/empatico_bg.jpg';
 
 const partnersData = [
   { id: 'tex-grill', logo: texGrillLogo, name: 'Tex Grill', description: 'Hamburguesas, alitas y costillas. El lugar perfecto para después del partido.', link: '/socios/tex-grill', bgImage: texGrillBg },
-  { id: 'caffeempatico', logo: caffeempaticoLogo, name: 'Empatico Coffee Bar', description: 'Un lugar feliz donde pasan cosas buenas', link: '/socios/caffeempatico', bgImage: caffeempaticoBg },
+  { id: 'caffeempatico', logo: caffeempaticoLogo, name: 'Empatico Coffee Bar', description: 'Un Lugar feliz donde pasan cosas buenas.', link: '/socios/caffeempatico', bgImage: caffeempaticoBg },
 ];
 
 const cardVariants = { hidden: { opacity: 0, y: 30 }, visible: (i) => ({ opacity: 1, y: 0, transition: { delay: i * 0.2, duration: 0.8, ease: [0.2, 0.65, 0.3, 0.9], }, }), };
